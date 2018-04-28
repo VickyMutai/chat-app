@@ -2,21 +2,17 @@
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Requirements
 
-```
-Python 3.5
+Python 3.6.3
 
-```
 
 ### Installing
 
 A step by step series of examples that tell you have to get a development env running
 
-Say what the step will be
-
-```
 python3.6 -m venv virtual
+- Activate virtual
 source/bin/activate
 
 pip install -r requirements.txt
