@@ -19,7 +19,7 @@ class ChatView(APIView):
         }
         return Response(context)
 
-    def add(self,request,*args,**kwargs):
+    def patch(self,request,*args,**kwargs):
         User = get_user_model()
         uri = kwargs['uri']
         username = request.data['username']
