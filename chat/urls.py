@@ -22,6 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('app/',include('app.urls')),
     url('auth/', include('djoser.urls')),
-    url('auth/', include('djoser.urls.authtoken')),
     url('api/token/',obtain_auth_token,name='api-token')
 ]
