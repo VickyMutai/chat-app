@@ -7,8 +7,8 @@ from rest_framework import permissions
 
 # Create your views here.
 class ChatView(APIView):
-    permission_classes = (permissions.IsAuthenticated)
-    def post(self,request,*args,**kwargs):
+    permission_classes = (permissions.IsAuthenticated,)
+    def post(self,request,format=None):
         user = request.user
         chat = Chat.objects.create(admin=user)
 
@@ -45,12 +45,11 @@ class ChatView(APIView):
         return Response(context)
 
 class ChatMessageView(APIView):
-    permission_classes = (permissions.IsAuthenticated)
+    permission_classes = (permissions.IsAuthenticated,)
     def get(self,request,*args,**kwargs):
         uri = kwargs['uri']
         chat = Chat.objects.get(uri=uri)
-        messages [chat_message.to_json() for chat_message in chat.messages.all()]
-
+        messages = [chat_message.to_json()for chat_message in chat.messages.all()]
         context = {
             'id':chat.id,
             'uri':chat.uri,
