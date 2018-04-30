@@ -2,22 +2,38 @@
 
 ### Prerequisites
 
-Requirements
+###### Requirements
 
 Python 3.6.3
 
 
 ### Installing
+Create virtual
+- python3.6 -m venv virtual
+Activate virtual
+- source/bin/activate
 
-A step by step series of examples that tell you have to get a development env running
+#### Install all the requirements
+- pip install -r requirements.txt
 
-python3.6 -m venv virtual
-- Activate virtual
-source/bin/activate
+#### Databases
+for postgresql users;
+  * Go to settings;
+    - Change user,password, name(database name) on the database settings.
+for sqlite users;
+  * Go to settings;
+    - replace the database section with the following;
+        - DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+      
 
-pip install -r requirements.txt
-python manage.py makemigrations
-python manage.py migrate
-python manage.py runserver
-```
+### Make migrations
+- python manage.py makemigrations
+- python manage.py migrate
 
+#### Run application
+- python manage.py runserver
