@@ -12,7 +12,7 @@ def serialize_user(user):
     }
 
 class TrackDate(models.Model):
-      """Model to Track the creation/updated date for a model."""
+    """Model to Track the creation/updated date for a model."""
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
 
@@ -39,6 +39,6 @@ class ChatMessage(TrackDate):
                 'message':self.message}
 
 class ChatMember(TrackDate):
-       """Store all users in a chat."""
+    """Store all users in a chat."""
     chat = models.ForeignKey(Chat, related_name='members', on_delete=models.PROTECT)
     user = models.ForeignKey(User, on_delete=models.PROTECT)
