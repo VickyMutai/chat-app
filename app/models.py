@@ -5,14 +5,14 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 # Create your models here.
-def serialize_user(user):
-    """serialize user instance to JSON."""
+def deserialize_user(user):
+    """deserialize user instance to JSON."""
     return {
-        'id': user.id, 'username': user.username, 'email': user.email,
+        'id': user.id, 'username': user.username, 'email': user.email
     }
 
 class TrackDate(models.Model):
-      """Model to Track the creation/updated date for a model."""
+    """Model to Track the creation/updated date for a model."""
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
 
@@ -35,10 +35,10 @@ class ChatMessage(TrackDate):
     message = models.TextField(max_length=2000)
 
     def convert(self):
-        return{'user':serialize_user(self.user),
+        return{'user':deserialize_user(self.user),
                 'message':self.message}
 
 class ChatMember(TrackDate):
-       """Store all users in a chat."""
+    """Store all users in a chat."""
     chat = models.ForeignKey(Chat, related_name='members', on_delete=models.PROTECT)
     user = models.ForeignKey(User, on_delete=models.PROTECT)

@@ -4,7 +4,7 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns=[
-    url('chats/', views.ChatSessionView.as_view()),
-    url('chats/<uri>/', views.ChatSessionView.as_view()),
-    url('chats/<uri>/messages/', views.ChatSessionMessageView.as_view()),
+    url(r'chats/$', views.ChatView.as_view()),
+    url(r'chats/(?P<uri>\w+)/$', views.ChatView.as_view()),
+    url(r'chats/(?P<uri>\w+)/messages/$', views.ChatMessageView.as_view()),
 ]
