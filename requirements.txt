@@ -6,7 +6,7 @@ Django==1.11
 django-bootstrap4==0.0.6
 django-registration==2.4.1
 django-templated-mail==1.1.1
-djangorestframework==3.8.2
+djangorestframework==3.11.2
 djoser==1.1.5
 gunicorn==19.7.1
 mock==2.0.0
